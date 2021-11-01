@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accounts>
+	<account>
+		<accountId>1</accountId>
+		<FisrtName>"Callebe"</FisrtName>
+		<LastName>"Soares Barbosa"</LastName>
+		<usercpf>"292850603"</usercpf>
+		<accountBalance>0.05</accountBalance>
+	</account>
+	<account>
+		<accountId>2</accountId>
+		<FisrtName>"Raquel"</FisrtName>
+		<LastName>"Souza Lemos Tre"</LastName>
+		<usercpf>"362256845"</usercpf>
+		<accountBalance>502.02</accountBalance>
+	</account>
+	<account>
+		<accountId>3</accountId>
+		<FisrtName>"João"</FisrtName>
+		<LastName>"Cunha"</LastName>
+		<usercpf>"512621885"</usercpf>
+		<accountBalance>2100.23</accountBalance>
+	</account>
+	<account>
+		<accountId>4</accountId>
+		<FisrtName>"Lucas"</FisrtName>
+		<LastName>"Lucos"</LastName>
+		<usercpf>"292850603"</usercpf>
+		<accountBalance>32562.23</accountBalance>
+	</account>
+</accounts>
