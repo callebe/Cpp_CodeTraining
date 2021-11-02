@@ -15,27 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="account.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxml2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="account.h">
+    <ClInclude Include="..\api\account.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tinyxml2.h">
+    <ClInclude Include="..\api\json.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Accounts.xml">
+    <ClCompile Include="..\src\account.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Bank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\Accounts.json">
       <Filter>Resource Files</Filter>
-    </Xml>
+    </None>
   </ItemGroup>
 </Project>

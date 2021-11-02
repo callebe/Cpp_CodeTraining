@@ -1,12 +1,13 @@
 
 #include "account.h"
 
-account::account(std::string inputFirstName, std::string inputLastName, std::string inputCpf)
+account::account(unsigned int inputAccountId, std::string inputFirstName, std::string inputLastName, std::string inputCpf, float inputAccountBalance)
 {
+	accountId = inputAccountId;
 	FirstName = inputFirstName;
 	LastName = inputLastName;
 	cpf  = inputCpf;
-	accountBalance = 0;
+	accountBalance = inputAccountBalance;
 }
 
 account::account()

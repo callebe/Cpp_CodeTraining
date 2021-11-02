@@ -11,7 +11,7 @@ class account {
 		std::string cpf;
 		float accountBalance;
 	public :
-		account(std::string inputFirstName, std::string inputLastName, std::string inputCpf);
+		account(unsigned int inputAccountId, std::string inputFirstName, std::string inputLastName, std::string inputCpf, float inputAccountBalance);
 		account();
 		void withdraw(float money);
 		void deposit(float money);
