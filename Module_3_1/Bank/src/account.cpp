@@ -1,50 +1,105 @@
 
 #include "account.h"
 
-account::account(unsigned int inputAccountId, std::string inputFirstName, std::string inputLastName, std::string inputCpf, float inputAccountBalance)
+using json = nlohmann::json;
+
+unsigned int bankAccount::account::numberOfAccounts = 0;
+
+bankAccount::account::account(unsigned int accountId, std::string FirstName, std::string LastName, std::string cpf, float accountBalance):
+    accountId(accountId),
+    FirstName(FirstName),
+    LastName(LastName),
+    cpf(cpf),
+    accountBalance(accountBalance)
 {
-	accountId = inputAccountId;
-	FirstName = inputFirstName;
-	LastName = inputLastName;
-	cpf  = inputCpf;
-	accountBalance = inputAccountBalance;
+    this->numberOfAccounts++;
+    std::cout << "Criou: " << accountId << std::endl;
 }
 
-account::account()
+bankAccount::account::account()
 {
-	accountId = 0;
-	FirstName = "";
-	LastName = "";
-	cpf = "";
-	accountBalance = 0;
+    this->accountId = 0;
+    this->FirstName = "";
+    this->LastName = "";
+    this->cpf = "";
+    this->accountBalance = 0;
 }
 
-void account::withdraw(float money)
+bankAccount::account::~account()
 {
-	accountBalance -= money;
+    
+    if(numberOfAccounts>0) numberOfAccounts--;
+    std::cout << "Matou: " << accountId << std::endl;
 }
 
-void account::deposit(float money)
-{
-	accountBalance += money;
+unsigned int bankAccount::account::getNumberOfAccounts() {
+
+    return numberOfAccounts;
 }
 
-float account::getBalance(void) const
+void bankAccount::account::withdraw(float money)
 {
-	return accountBalance;
+    this->accountBalance -= money;
 }
 
-std::string account::getFirstName(void) const
+void bankAccount::account::deposit(float money)
 {
-	return FirstName;
+    this->accountBalance += money;
 }
 
-std::string account::getLastName(void) const
+float bankAccount::account::getBalance(void) const
 {
-	return LastName;
+	return this->accountBalance;
 }
 
-std::string account::getCpf(void) const
+std::string bankAccount::account::getFirstName(void) const
 {
-	return cpf;
+	return this->FirstName;
+}
+
+std::string bankAccount::account::getLastName(void) const
+{
+	return this->LastName;
+}
+
+std::string bankAccount::account::getCpf(void) const
+{
+	return this->cpf;
+}
+
+bankAccount::account** bankAccount::loadAccountsFromJson(const std::string fileName)
+{
+    std::string line;
+    std::string Input;
+    account** Accounts = NULL;
+    unsigned int numberOfAccounts = 0;
+
+
+    // Load string input from Json file
+    std::ifstream inputFile;
+    inputFile.open(fileName, std::ios::binary | std::ios::in);
+    if (!inputFile) {
+        return NULL;
+    }
+
+    while (getline(inputFile, line))
+    {
+        Input = Input + line + '\n';
+    }
+    inputFile.close();
+
+    // Loading Json object return with the input file
+    json j = json::parse(Input);
+    numberOfAccounts = (unsigned int)j["Accounts"].size();
+    Accounts = new account*[numberOfAccounts];
+
+    for (unsigned int i = 0; i < numberOfAccounts; i++) {
+        Accounts[i] = new account(j["Accounts"][i]["accountId"],
+            j["Accounts"][i]["FirstName"],
+            j["Accounts"][i]["LastName"],
+            j["Accounts"][i]["cpf"],
+            j["Accounts"][i]["accountBalance"]);
+    }
+
+    return Accounts;
 }
