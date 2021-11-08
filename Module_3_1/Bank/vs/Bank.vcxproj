@@ -143,10 +143,12 @@
   <ItemGroup>
     <ClInclude Include="..\api\account.h" />
     <ClInclude Include="..\api\json.h" />
+    <ClInclude Include="..\api\owner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\account.cpp" />
     <ClCompile Include="..\src\Bank.cpp" />
+    <ClCompile Include="..\src\owner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\Accounts.json" />

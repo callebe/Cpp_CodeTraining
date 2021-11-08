@@ -1,0 +1,25 @@
+{
+    "Accounts": [
+        {
+            "FirstName": "Alex",
+            "LastName": "Assis Barbosa",
+            "accountBalance": 0.0,
+            "accountId": 0,
+            "cpf": "256.362.174.00"
+        },
+        {
+            "FirstName": "Gina",
+            "LastName": "Oliveira Jones",
+            "accountBalance": 0.0,
+            "accountId": 1,
+            "cpf": "859.623.125.22"
+        },
+        {
+            "FirstName": "Lorenzo",
+            "LastName": "Abreu",
+            "accountBalance": 0.0,
+            "accountId": 2,
+            "cpf": "225.211.225.12"
+        }
+    ]
+}

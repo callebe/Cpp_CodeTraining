@@ -5,11 +5,9 @@ using json = nlohmann::json;
 
 unsigned int bankAccount::account::numberOfAccounts = 0;
 
-bankAccount::account::account(unsigned int accountId, std::string FirstName, std::string LastName, std::string cpf, float accountBalance):
+bankAccount::account::account(unsigned int accountId, owner::owner ownerAccount, float accountBalance):
     accountId(accountId),
-    FirstName(FirstName),
-    LastName(LastName),
-    cpf(cpf),
+    ownerAccount(ownerAccount),
     accountBalance(accountBalance)
 {
     this->numberOfAccounts++;
@@ -19,9 +17,6 @@ bankAccount::account::account(unsigned int accountId, std::string FirstName, std
 bankAccount::account::account()
 {
     this->accountId = 0;
-    this->FirstName = "";
-    this->LastName = "";
-    this->cpf = "";
     this->accountBalance = 0;
 }
 
@@ -47,24 +42,19 @@ void bankAccount::account::deposit(float money)
     this->accountBalance += money;
 }
 
+unsigned int bankAccount::account::getAccountId(void) const
+{
+    return this->accountId;
+}
+
 float bankAccount::account::getBalance(void) const
 {
 	return this->accountBalance;
 }
 
-std::string bankAccount::account::getFirstName(void) const
+owner::owner bankAccount::account::getOwner(void) const
 {
-	return this->FirstName;
-}
-
-std::string bankAccount::account::getLastName(void) const
-{
-	return this->LastName;
-}
-
-std::string bankAccount::account::getCpf(void) const
-{
-	return this->cpf;
+    return this->ownerAccount;
 }
 
 bankAccount::account** bankAccount::loadAccountsFromJson(const std::string fileName)
@@ -93,13 +83,52 @@ bankAccount::account** bankAccount::loadAccountsFromJson(const std::string fileN
     numberOfAccounts = (unsigned int)j["Accounts"].size();
     Accounts = new account*[numberOfAccounts];
 
+    
     for (unsigned int i = 0; i < numberOfAccounts; i++) {
         Accounts[i] = new account(j["Accounts"][i]["accountId"],
-            j["Accounts"][i]["FirstName"],
-            j["Accounts"][i]["LastName"],
-            j["Accounts"][i]["cpf"],
-            j["Accounts"][i]["accountBalance"]);
+                                  owner::owner(j["Accounts"][i]["FirstName"], j["Accounts"][i]["LastName"], j["Accounts"][i]["cpf"]),
+                                  j["Accounts"][i]["accountBalance"]
+                                );
     }
 
     return Accounts;
+}
+
+bankAccount::account** bankAccount::appendAccount(bankAccount::account newAccount, bankAccount::account** Accounts)
+{
+
+    account** newAccounts = NULL;
+    newAccounts = new account* [bankAccount::account::getNumberOfAccounts() + 1];
+
+    for (unsigned int i = 0; i < bankAccount::account::getNumberOfAccounts(); i++) {
+        newAccounts[i] = Accounts[i];
+    }
+    
+    newAccounts[bankAccount::account::getNumberOfAccounts()] = new bankAccount::account(
+                                                                        newAccount.getAccountId(),
+                                                                        newAccount.getOwner(),
+                                                                        newAccount.getBalance()
+                                                                    );
+
+    return newAccounts;
+}
+
+int bankAccount::saveAccountsOnJson(const std::string fileName, bankAccount::account** Accounts)
+{
+    json jsonFile;
+
+    // Load string input from Json file
+    std::ofstream outputFile(fileName);
+    
+    //Convert to json file
+    for (unsigned int i = 0; i < bankAccount::account::getNumberOfAccounts(); i++) {
+        jsonFile["Accounts"][i]["accountId"] = Accounts[i]->getAccountId();
+        jsonFile["Accounts"][i]["FirstName"] = Accounts[i]->getOwner().getFirstName();
+        jsonFile["Accounts"][i]["LastName"] = Accounts[i]->getOwner().getLastName();
+        jsonFile["Accounts"][i]["cpf"] = Accounts[i]->getOwner().getCpf();
+        jsonFile["Accounts"][i]["accountBalance"] = Accounts[i]->getBalance();
+    }
+    outputFile << std::setw(4) << jsonFile << std::endl;
+
+    return 0;
 }

@@ -21,12 +21,18 @@
     <ClInclude Include="..\api\json.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\api\owner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\account.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Bank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\owner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

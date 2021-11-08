@@ -8,7 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <json.h>
-
+#include "owner.h"
 
 /*-------------------------------------------------------------------------------*/
 // Defines
@@ -25,26 +25,21 @@ namespace bankAccount
 		private:
 			static unsigned int numberOfAccounts;
 			unsigned int accountId;
-			std::string FirstName;
-			std::string LastName;
-			std::string cpf;
+			owner::owner ownerAccount;
 			float accountBalance;
 
 		public:
 			account(unsigned int inputAccountId,
-				std::string inputFirstName,
-				std::string inputLastName,
-				std::string inputCpf,
+				owner::owner ownerAccount,
 				float inputAccountBalance);
 			account();
 			~account();
 			static unsigned int getNumberOfAccounts();
 			void withdraw(float money);
 			void deposit(float money);
+			unsigned int getAccountId(void) const;
 			float getBalance(void) const;
-			std::string getFirstName(void) const;
-			std::string getLastName(void) const;
-			std::string getCpf(void) const;
+			owner::owner getOwner(void) const;
 	};
 
 
@@ -52,6 +47,8 @@ namespace bankAccount
 	// Function Declaration
 	/*-------------------------------------------------------------------------------*/
 	account** loadAccountsFromJson(const std::string fileName);
+	int saveAccountsOnJson(const std::string fileName, bankAccount::account** Accounts);
+	bankAccount::account** appendAccount(bankAccount::account newAccount, bankAccount::account** Accounts);
 
 }
 

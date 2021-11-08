@@ -9,6 +9,7 @@
 // Defines
 /*-------------------------------------------------------------------------------*/
 #define   ACCOUNTS_SOURCE    "./data/Accounts.json"
+#define   ACCOUNTS_SOURCE_OUTPUT    "./data/AccountsOut.json"
 
 
 using namespace std;
@@ -22,11 +23,22 @@ int main()
         cout << "Account file is missing!" << endl;
     }
     else {
-        /*for(unsigned int i=0; i< bankAccount::account::getNumberOfAccounts(); i++) cout << Accounts[i].getFirstName() << endl;*/
-        for (unsigned int i = 0; i < 3; i++) cout << (*Accounts)[i].getFirstName() << endl;
-        cout << "Number of Accounts :" << bankAccount::account::getNumberOfAccounts() << endl;
+
+        /*Accounts = bankAccount::appendAccount(bankAccount::account(
+                                        5,
+                                        owner::owner("Zezinh", "Viadinho", "00.175.125.02"),
+                                        0.756
+                                    ),
+                                    Accounts);*/
+        /*for (unsigned int i = 0; i < bankAccount::account::getNumberOfAccounts(); i++) {
+            owner::owner AccountOwner = Accounts[i]->getOwner();
+            cout << AccountOwner.getFirstName() << endl;
+        }*/
+       //cout << "Number of Accounts :" << bankAccount::account::getNumberOfAccounts() << endl;
     }
     
+    bankAccount::saveAccountsOnJson (ACCOUNTS_SOURCE, Accounts);
+
     return 0;
 }
 
