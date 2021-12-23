@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "name": "Source Code (*.c)",
+            "path": "${workspaceFolder}/src"
+        },
+        {
+            "name": "Api Headers (*.h)",
+            "path": "${workspaceFolder}/api"
+        },
+        {
+            "name": "Data Foulder (*.txt)",
+            "path": "${workspaceFolder}/data"
+        },
+    ]
+}

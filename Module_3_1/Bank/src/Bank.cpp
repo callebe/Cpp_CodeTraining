@@ -17,27 +17,28 @@ using namespace std;
 
 int main()
 {
-    
+
     bankAccount::account** Accounts = bankAccount::loadAccountsFromJson(ACCOUNTS_SOURCE);
     if (Accounts == NULL) {
         cout << "Account file is missing!" << endl;
     }
     else {
-
-        /*Accounts = bankAccount::appendAccount(bankAccount::account(
-                                        5,
-                                        owner::owner("Zezinh", "Viadinho", "00.175.125.02"),
-                                        0.756
-                                    ),
-                                    Accounts);*/
-        /*for (unsigned int i = 0; i < bankAccount::account::getNumberOfAccounts(); i++) {
-            owner::owner AccountOwner = Accounts[i]->getOwner();
-            cout << AccountOwner.getFirstName() << endl;
-        }*/
-       //cout << "Number of Accounts :" << bankAccount::account::getNumberOfAccounts() << endl;
+        Accounts = bankAccount::appendAccount(
+                bankAccount::account(
+                    5,
+                    owner::owner("Zezinh", "Viadinho", "00.175.125.02"),
+                    0.756
+                ),
+                Accounts
+            );
+        
+        // for (unsigned int i = 0; i < bankAccount::account::getNumberOfAccounts(); i++) {
+        //     owner::owner AccountOwner = Accounts[i]->getOwner();
+        //     cout << AccountOwner.getFirstName() << endl;
+        // }
+       cout << "Number of Accounts :" << bankAccount::account::getNumberOfAccounts() << endl;
+       bankAccount::saveAccountsOnJson (ACCOUNTS_SOURCE_OUTPUT, Accounts);
     }
-    
-    bankAccount::saveAccountsOnJson (ACCOUNTS_SOURCE, Accounts);
 
     return 0;
 }

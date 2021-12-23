@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compiler",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++11",
+                "-g",
+                "-Wall",
+                "-I${workspaceFolder}/api/",
+                "-c",
+                "${workspaceFolder}/src/**.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/output/obj"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Linker",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-Wall",
+                "-I${workspaceFolder}/api/",
+                "${workspaceFolder}/output/obj/**.o",
+                "-o",
+                "${workspaceFolder}/output/bin/${workspaceFolderBasename}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/output/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Build Project",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Clean Build Files",
+                "Compiler",
+                "Linker"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
