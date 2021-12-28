@@ -4,10 +4,11 @@
         {
             "label": "Compiler",
             "type": "shell",
-            "command": "/usr/bin/g++",
+            // "command": "/usr/bin/g++",
+            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-std=c++11",
+                "-std=c++17",
                 "-g",
                 "-Wall",
                 "-I${workspaceFolder}/api/",
@@ -25,9 +26,11 @@
         {
             "label": "Linker",
             "type": "shell",
-            "command": "/usr/bin/g++",
+            // "command": "/usr/bin/g++",
+            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
             "args": [
                 "-fdiagnostics-color=always",
+                "-std=c++17",
                 "-g",
                 "-Wall",
                 "-I${workspaceFolder}/api/",

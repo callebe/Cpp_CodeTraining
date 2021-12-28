@@ -1,16 +1,97 @@
 {
-    "folders": [
-        {
-            "name": "Source Code (*.c)",
-            "path": "${workspaceFolder}/src"
-        },
-        {
-            "name": "Api Headers (*.h)",
-            "path": "${workspaceFolder}/api"
-        },
-        {
-            "name": "Data Foulder (*.txt)",
-            "path": "${workspaceFolder}/data"
-        },
-    ]
+	"folders": [
+		{
+			"name": "Root",
+			"path": ".."
+		},
+		// {
+		// 	"name": "Source Code",
+		// 	"path": "../src"
+		// },
+		// {
+		// 	"name": "Api Headers",
+		// 	"path": "../api"
+		// },
+		// {
+		// 	"name": "Data Folder",
+		// 	"path": "../data"
+		// },
+	],
+	"settings": {
+		"files.associations": {
+			"string": "cpp",
+			"iosfwd": "cpp",
+			"fstream": "cpp",
+			"iostream": "cpp",
+			"memory": "cpp",
+			"xutility": "cpp",
+			"*.tcc": "cpp",
+			"new": "cpp",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"cstdarg": "cpp",
+			"cstddef": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"exception": "cpp",
+			"iomanip": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"ostream": "cpp",
+			"sstream": "cpp",
+			"stdexcept": "cpp",
+			"streambuf": "cpp",
+			"typeinfo": "cpp",
+			"valarray": "cpp",
+			"algorithm": "cpp",
+			"array": "cpp",
+			"atomic": "cpp",
+			"bit": "cpp",
+			"charconv": "cpp",
+			"chrono": "cpp",
+			"codecvt": "cpp",
+			"compare": "cpp",
+			"concepts": "cpp",
+			"cstdint": "cpp",
+			"forward_list": "cpp",
+			"list": "cpp",
+			"map": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"filesystem": "cpp",
+			"format": "cpp",
+			"functional": "cpp",
+			"initializer_list": "cpp",
+			"ios": "cpp",
+			"iterator": "cpp",
+			"locale": "cpp",
+			"numeric": "cpp",
+			"optional": "cpp",
+			"ratio": "cpp",
+			"system_error": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp",
+			"xfacet": "cpp",
+			"xhash": "cpp",
+			"xiosbase": "cpp",
+			"xlocale": "cpp",
+			"xlocbuf": "cpp",
+			"xlocinfo": "cpp",
+			"xlocmes": "cpp",
+			"xlocmon": "cpp",
+			"xlocnum": "cpp",
+			"xloctime": "cpp",
+			"xmemory": "cpp",
+			"xstddef": "cpp",
+			"xstring": "cpp",
+			"xtr1common": "cpp",
+			"xtree": "cpp"
+		}
+	}
 }

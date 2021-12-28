@@ -29,9 +29,11 @@ namespace bankAccount
 			float accountBalance;
 
 		public:
-			account(unsigned int inputAccountId,
+			account(
+				unsigned int inputAccountId,
 				owner::owner ownerAccount,
-				float inputAccountBalance);
+				float inputAccountBalance
+			);
 			account();
 			~account();
 			static unsigned int getNumberOfAccounts();
@@ -42,13 +44,29 @@ namespace bankAccount
 			owner::owner getOwner(void) const;
 	};
 
+	class accountList {	
+
+		private:
+			
+
+		public:
+			bankAccount::account** List;
+			static unsigned int numberOfAccounts;
+			accountList(
+				bankAccount::account** List,
+				unsigned int listSize
+			);
+			accountList();
+			~accountList();
+			static unsigned int getNumberOfAccounts();
+	};
 
 	/*-------------------------------------------------------------------------------*/
 	// Function Declaration
 	/*-------------------------------------------------------------------------------*/
-	account** loadAccountsFromJson(const std::string fileName);
-	int saveAccountsOnJson(const std::string fileName, bankAccount::account** Accounts);
-	bankAccount::account** appendAccount(bankAccount::account newAccount, bankAccount::account** Accounts);
+	bankAccount::accountList* loadAccountsFromJson(const char* fileName);
+	int saveAccountsOnJson(const char* fileName, bankAccount::accountList* Accounts);
+	void appendAccount(bankAccount::account newAccount, bankAccount::accountList* Accounts);
 
 }
 
