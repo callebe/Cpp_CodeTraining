@@ -47,11 +47,10 @@ namespace bankAccount
 	class accountList {	
 
 		private:
-			
+			static unsigned int numberOfAccounts;
 
 		public:
 			bankAccount::account** List;
-			static unsigned int numberOfAccounts;
 			accountList(
 				bankAccount::account** List,
 				unsigned int listSize
@@ -59,6 +58,7 @@ namespace bankAccount
 			accountList();
 			~accountList();
 			static unsigned int getNumberOfAccounts();
+			void appendAccount(bankAccount::account newAccount);
 	};
 
 	/*-------------------------------------------------------------------------------*/
@@ -66,7 +66,6 @@ namespace bankAccount
 	/*-------------------------------------------------------------------------------*/
 	bankAccount::accountList* loadAccountsFromJson(const char* fileName);
 	int saveAccountsOnJson(const char* fileName, bankAccount::accountList* Accounts);
-	void appendAccount(bankAccount::account newAccount, bankAccount::accountList* Accounts);
 
 }
 

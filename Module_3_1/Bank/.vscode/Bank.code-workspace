@@ -12,10 +12,10 @@
 		// 	"name": "Api Headers",
 		// 	"path": "../api"
 		// },
-		// {
-		// 	"name": "Data Folder",
-		// 	"path": "../data"
-		// },
+		{
+			"name": "Data Folder",
+			"path": "../data"
+		},
 	],
 	"settings": {
 		"files.associations": {

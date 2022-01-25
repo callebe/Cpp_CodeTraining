@@ -9,6 +9,7 @@
 // Defines
 /*-------------------------------------------------------------------------------*/
 #define   ACCOUNTS_SOURCE    "./data/Accounts.json"
+#define   ACCOUNTS_OUTPUT    "./data/AccountsOut.json"
 
 /*-------------------------------------------------------------------------------*/
 // Namespace definition
@@ -26,18 +27,17 @@ int main()
         cout << "Account file is missing!" << endl;
     }
     else {
-        cout << "Previous pointer :" <<  reinterpret_cast<void *>(accounts) << endl;          
-        bankAccount::appendAccount(
+        cout << "Previous pointer :" <<  reinterpret_cast<void *>(accounts) << endl;  
+        accounts->appendAccount(
             bankAccount::account(
-                    5,
-                    owner::owner(
-                        string("Zezinh"),
-                        string("Viadinho"),
-                        string("00.175.125.02")
-                    ),
-                    1234
+                5,
+                owner::owner(
+                    string("ZezinhAAA"),
+                    string("Viadinho"),
+                    string("00.175.125.02")
                 ),
-            accounts
+                1234
+            )
         );
         
         for (unsigned int i = 0; i < bankAccount::accountList::getNumberOfAccounts(); i++) {
@@ -45,8 +45,8 @@ int main()
             float balance = accounts->List[i]->getBalance();
             cout << AccountOwner.getFirstName() << " : " << balance << endl;
         }
-       cout << "Number of Accounts :" << bankAccount::accountList::numberOfAccounts << endl; 
-       bankAccount::saveAccountsOnJson (ACCOUNTS_SOURCE, accounts);
+       cout << "Number of Accounts :" << bankAccount::accountList::getNumberOfAccounts() << endl; 
+       bankAccount::saveAccountsOnJson (ACCOUNTS_OUTPUT, accounts);
     }
 
     return 0;

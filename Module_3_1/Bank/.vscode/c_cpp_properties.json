@@ -3,8 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/api/*",
-                "${workspaceFolder}/src/*",
+                "${workspaceFolder}/api",
+                "${workspaceFolder}/src",
                 "C:\\Program Files\\LLVM\\include\\clang-c",
                 "C:\\Program Files\\LLVM\\include\\llvm-c",
                 "C:\\Program Files\\LLVM\\include\\clang-c\\backward",
@@ -21,7 +21,22 @@
             "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x64"
+            "intelliSenseMode": "windows-clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/api",
+                    "${workspaceFolder}/src",
+                    "C:\\Program Files\\LLVM\\include\\clang-c",
+                    "C:\\Program Files\\LLVM\\include\\llvm-c",
+                    "C:\\Program Files\\LLVM\\include\\clang-c\\backward",
+                    "C:\\Program Files\\LLVM\\include\\clang-c\\bits",
+                    "C:\\Program Files\\LLVM\\include\\clang-c\\debug",
+                    "C:\\Program Files\\LLVM\\include\\clang-c\\ext",
+                    "C:\\Program Files\\LLVM\\include\\clang-c\\mingw32\\*"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
         }
     ],
     "version": 4

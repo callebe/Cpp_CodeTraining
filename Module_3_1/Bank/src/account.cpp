@@ -143,30 +143,30 @@ bankAccount::accountList* bankAccount::loadAccountsFromJson(const char* fileName
     return returnAccounts;
 }
 
-void bankAccount::appendAccount(bankAccount::account newAccount, bankAccount::accountList* Accounts)
+void bankAccount::accountList::appendAccount(bankAccount::account newAccount)
 {
 
     account** newAccounts = NULL;
-    newAccounts = new account* [bankAccount::accountList::getNumberOfAccounts() + 1];
+    newAccounts = new account* [this->numberOfAccounts + 1];
 
-    for (unsigned int i = 0; i < 3; i++) {
+    for (unsigned int i = 0; i < this->numberOfAccounts; i++) {
         newAccounts[i] = new bankAccount::account(
-            Accounts->List[i]->getAccountId(),
-            Accounts->List[i]->getOwner(),
-            Accounts->List[i]->getBalance()
+            this->List[i]->getAccountId(),
+            this->List[i]->getOwner(),
+            this->List[i]->getBalance()
         );
-        delete Accounts->List[i];
+        delete this->List[i];
     }
     
-    newAccounts[bankAccount::accountList::getNumberOfAccounts()] = 
+    newAccounts[this->numberOfAccounts] = 
         new bankAccount::account(
             newAccount.getAccountId(),
             newAccount.getOwner(),
             newAccount.getBalance()
         );
 
-    Accounts->List = newAccounts;
-    Accounts->numberOfAccounts=bankAccount::accountList::getNumberOfAccounts() + 1;
+    this->List = newAccounts;
+    this->numberOfAccounts++;
 
     return;
 }

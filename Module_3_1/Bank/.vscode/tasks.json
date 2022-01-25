@@ -2,6 +2,26 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Cleanup Build Files",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": [
+                "rm -r -fo",
+                "${workspaceFolder}/output/obj/*",
+                ";",
+                "rm -r -fo",
+                "${workspaceFolder}/output/bin/*"
+            ],
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
             "label": "Compiler",
             "type": "shell",
             // "command": "/usr/bin/g++",
@@ -50,6 +70,7 @@
             "label": "Build Project",
             "dependsOrder": "sequence",
             "dependsOn": [
+                "Cleanup Build Files",
                 "Clean Build Files",
                 "Compiler",
                 "Linker"
