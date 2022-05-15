@@ -2,6 +2,22 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Run App",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": [
+                "${workspaceFolder}/output/bin/${workspaceFolderBasename}.exe"
+            ],
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "none"
+        },
+        {
             "label": "Cleanup Build Files",
             "type": "shell",
             // "command": "/usr/bin/g++",
@@ -19,7 +35,7 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": "build"
+            "group": "none"
         },
         {
             "label": "Compiler",
@@ -56,7 +72,7 @@
                 "-I${workspaceFolder}/api/",
                 "${workspaceFolder}/output/obj/**.o",
                 "-o",
-                "${workspaceFolder}/output/bin/${workspaceFolderBasename}"
+                "${workspaceFolder}/output/bin/${workspaceFolderBasename}.exe"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/output/bin"

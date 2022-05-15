@@ -1,5 +1,5 @@
-#ifndef INCLUDE_OWNER_H
-#define INCLUDE_OWNER_H
+#ifndef INCLUDE_MANAGER_H
+#define INCLUDE_MANAGER_H
 
 /*-------------------------------------------------------------------------------*/
 // Includes
@@ -16,24 +16,18 @@
 /*-------------------------------------------------------------------------------*/
 // Class Declaration
 /*-------------------------------------------------------------------------------*/
-class owner: public person::person, public authenticable
+class manager : public person, public authenticable
 {
-
-	private:
-
-	public:
-		owner(
-			std::string inputFirstName,
-			std::string inputLastName,
-			std::string inputCpf,
-			std::string password
-		);
-		~owner();
+    private:
+    
+    public:
+        manager(
+            std::string inputFirstName,
+            std::string inputLastName,
+            std::string inputCpf,
+            std::string password
+        );
+        ~manager();
 };
 
-
-/*-------------------------------------------------------------------------------*/
-// Function Declaration
-/*-------------------------------------------------------------------------------*/
-
-#endif //INCLUDE_OWNER_H
+#endif // INCLUDE_MANAGER_H

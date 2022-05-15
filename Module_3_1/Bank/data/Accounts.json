@@ -3,30 +3,49 @@
         {
             "FirstName": "Alex",
             "LastName": "Assis Barbosa",
-            "accountBalance": 2010.0,
-            "accountId": 0,
-            "cpf": "256.362.174.00"
+            "cpf": "256.362.174.00",
+            "savingAccount": {
+                "accountId": 0,
+                "accountBalance": 2010.0
+            }
+        },
+        {
+            "FirstName": "Alex",
+            "LastName": "Assis Barbosa",
+            "cpf": "256.362.174.00",
+            "checkingAccount":{
+                "accountId": 1,
+                "accountBalance": 2010.0
+            }
         },
         {
             "FirstName": "Gina",
             "LastName": "Oliveira Jones",
-            "accountBalance": 120.0,
-            "accountId": 1,
-            "cpf": "859.623.125.22"
+            "cpf": "859.623.125.22",
+            "savingAccount": {
+                "accountId": 2,
+                "accountBalance": 21.23
+            }
         },
         {
             "FirstName": "Lorenzo",
             "LastName": "Abreu",
-            "accountBalance": 60.0,
-            "accountId": 2,
-            "cpf": "225.211.225.12"
+            "cpf": "225.211.225.12",
+            "checkingAccount":{
+                "accountId": 3,
+                "accountBalance": 2314.23
+            }
         },
         {
             "FirstName": "Zezinh",
             "LastName": "Viadinho",
             "accountBalance": 1234.0,
             "accountId": 3,
-            "cpf": "00.175.125.02"
+            "cpf": "00.175.125.02",
+            "bankEmployee":{
+                "accountId": 4,
+                "accountBalance": 12
+            }
         }
     ]
 }

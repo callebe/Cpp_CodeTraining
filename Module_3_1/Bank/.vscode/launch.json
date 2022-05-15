@@ -15,7 +15,7 @@
             "stopAtEntry": false,
             "environment": [],
             "externalConsole": true,
-            "preLaunchTask": "Build Project",
+            // "preLaunchTask": "Build Project",
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
             "setupCommands": [

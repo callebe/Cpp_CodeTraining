@@ -1,4 +1,6 @@
-#pragma once
+#ifndef INCLUDE_ACCOUNT_H
+#define INCLUDE_ACCOUNT_H
+
 
 /*-------------------------------------------------------------------------------*/
 // Includes
@@ -15,58 +17,34 @@
 /*-------------------------------------------------------------------------------*/
 
 
-namespace bankAccount
-{
-	/*-------------------------------------------------------------------------------*/
-	// Class Declaration
-	/*-------------------------------------------------------------------------------*/
-	class account {	
+/*-------------------------------------------------------------------------------*/
+// Class Declaration
+/*-------------------------------------------------------------------------------*/
+class account
+{	
+	private:
+		// static unsigned int numberOfAccounts;
+		unsigned int accountId;
+		owner ownerAccount;
+	
+	protected:
+		float accountBalance;
 
-		private:
-			static unsigned int numberOfAccounts;
-			unsigned int accountId;
-			owner::owner ownerAccount;
-			float accountBalance;
+	public:
+		account(
+			unsigned int inputAccountId,
+			owner ownerAccount,
+			float inputAccountBalance
+		);
+		virtual ~account();
+		// static unsigned int getNumberOfAccounts();
+		virtual void withdraw(float money) = 0;
+		virtual void deposit(float money) = 0;
+		unsigned int getAccountId(void) const;
+		float getBalance(void) const;
+		owner getOwner(void) const;
+};
 
-		public:
-			account(
-				unsigned int inputAccountId,
-				owner::owner ownerAccount,
-				float inputAccountBalance
-			);
-			account();
-			~account();
-			static unsigned int getNumberOfAccounts();
-			void withdraw(float money);
-			void deposit(float money);
-			unsigned int getAccountId(void) const;
-			float getBalance(void) const;
-			owner::owner getOwner(void) const;
-	};
-
-	class accountList {	
-
-		private:
-			static unsigned int numberOfAccounts;
-
-		public:
-			bankAccount::account** List;
-			accountList(
-				bankAccount::account** List,
-				unsigned int listSize
-			);
-			accountList();
-			~accountList();
-			static unsigned int getNumberOfAccounts();
-			void appendAccount(bankAccount::account newAccount);
-	};
-
-	/*-------------------------------------------------------------------------------*/
-	// Function Declaration
-	/*-------------------------------------------------------------------------------*/
-	bankAccount::accountList* loadAccountsFromJson(const char* fileName);
-	int saveAccountsOnJson(const char* fileName, bankAccount::accountList* Accounts);
-
-}
+#endif //INCLUDE_ACCOUNT_H
 
 

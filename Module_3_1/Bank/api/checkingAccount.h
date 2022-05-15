@@ -1,39 +1,33 @@
-#ifndef INCLUDE_OWNER_H
-#define INCLUDE_OWNER_H
+#ifndef INCLUDE_CHECKING_ACCOUNT_H
+#define INCLUDE_CHECKING_ACCOUNT_H
 
 /*-------------------------------------------------------------------------------*/
 // Includes
 /*-------------------------------------------------------------------------------*/
-#include <string>
-#include "person.h"
-#include "authenticable.h"
+#include "account.h"
 
 /*-------------------------------------------------------------------------------*/
 // Defines
 /*-------------------------------------------------------------------------------*/
 
-
 /*-------------------------------------------------------------------------------*/
 // Class Declaration
 /*-------------------------------------------------------------------------------*/
-class owner: public person::person, public authenticable
+class checkingAccount final : public account
 {
+    private:
+        void withdraw(float money) override;
+        void deposit(float money) override;
+        const float withdrawFee = 0.01;
+        const float depositFee = 0.01;
 
-	private:
-
-	public:
-		owner(
-			std::string inputFirstName,
-			std::string inputLastName,
-			std::string inputCpf,
-			std::string password
-		);
-		~owner();
+    public:
+        checkingAccount(
+            unsigned int inputAccountId,
+            owner ownerAccount,
+            float inputAccountBalance
+        );
+        ~checkingAccount() override;
 };
 
-
-/*-------------------------------------------------------------------------------*/
-// Function Declaration
-/*-------------------------------------------------------------------------------*/
-
-#endif //INCLUDE_OWNER_H
+#endif // INCLUDE_CHECKING_ACCOUNT_H

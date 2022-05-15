@@ -1,12 +1,10 @@
-#ifndef INCLUDE_OWNER_H
-#define INCLUDE_OWNER_H
+#ifndef INCLUDE_PERSON_H
+#define INCLUDE_PERSON_H
 
 /*-------------------------------------------------------------------------------*/
 // Includes
 /*-------------------------------------------------------------------------------*/
 #include <string>
-#include "person.h"
-#include "authenticable.h"
 
 /*-------------------------------------------------------------------------------*/
 // Defines
@@ -16,24 +14,23 @@
 /*-------------------------------------------------------------------------------*/
 // Class Declaration
 /*-------------------------------------------------------------------------------*/
-class owner: public person::person, public authenticable
-{
+class person{
+    
+    private:
+        std::string FirstName;
+        std::string LastName;
+        std::string cpf;
 
-	private:
-
-	public:
-		owner(
-			std::string inputFirstName,
-			std::string inputLastName,
-			std::string inputCpf,
-			std::string password
-		);
-		~owner();
+    public:
+        person(
+            std::string FirstName,
+            std::string LastName,
+            std::string cpf
+        );
+        ~person();
+        std::string getFistName( void );
+        std::string getLastName( void );
+        std::string getCpf( void );
 };
 
-
-/*-------------------------------------------------------------------------------*/
-// Function Declaration
-/*-------------------------------------------------------------------------------*/
-
-#endif //INCLUDE_OWNER_H
+#endif // INCLUDE_PERSON_H
