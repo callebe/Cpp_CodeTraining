@@ -1,0 +1,100 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run App",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": [
+                "${workspaceFolder}/output/bin/${workspaceFolderBasename}.exe"
+            ],
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "none"
+        },
+        {
+            "label": "Cleanup Build Files",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": [
+                "rm -r -fo",
+                "${workspaceFolder}/output/obj/*",
+                ";",
+                "rm -r -fo",
+                "${workspaceFolder}/output/bin/*"
+            ],
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "none"
+        },
+        {
+            "label": "Compiler",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-I${workspaceFolder}/api/",
+                "-c",
+                "${workspaceFolder}/src/**.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/output/obj"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Linker",
+            "type": "shell",
+            // "command": "/usr/bin/g++",
+            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-I${workspaceFolder}/api/",
+                "${workspaceFolder}/output/obj/**.o",
+                "-o",
+                "${workspaceFolder}/output/bin/${workspaceFolderBasename}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/output/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Build Project",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Cleanup Build Files",
+                "Clean Build Files",
+                "Compiler",
+                "Linker"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

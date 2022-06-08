@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "iosfwd": "cpp"
+    },
+    "CppHelper.SourcePattern": [
+        "{FILE}.cpp",
+        "{FILE}.c",
+        "{FILE}.inl",
+        "/src/{FILE}.cpp"
+    ]
+}
